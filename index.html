@@ -1069,7 +1069,6 @@
 
                 <article class="surface video-placeholder-card">
                     <button class="video-placeholder" type="button"
-                            onclick="showVideoPlaceholder('Video 1')"
                             aria-label="Open Video 1 placeholder">
                         <span class="video-placeholder-label">Video 1</span>
                         <span class="play-button" aria-hidden="true">▶</span>
@@ -1081,7 +1080,6 @@
 
                 <article class="surface video-placeholder-card">
                     <button class="video-placeholder" type="button"
-                            onclick="showVideoPlaceholder('Video 2')"
                             aria-label="Open Video 2 placeholder">
                         <span class="video-placeholder-label">Video 2</span>
                         <span class="play-button" aria-hidden="true">▶</span>
@@ -1093,7 +1091,6 @@
 
                 <article class="surface video-placeholder-card">
                     <button class="video-placeholder" type="button"
-                            onclick="showVideoPlaceholder('Video 3')"
                             aria-label="Open Video 3 placeholder">
                         <span class="video-placeholder-label">Video 3</span>
                         <span class="play-button" aria-hidden="true">▶</span>
@@ -1374,14 +1371,7 @@
         } else {
             revealItems.forEach((item) => item.classList.add('visible'));
         }
-
-
-        // Temporary action for the three video placeholders.
-        function showVideoPlaceholder(name) {
-            alert(name + " is ready for a video link or embed.");
-        }
-
-        // Fact-or-fiction quiz.
+// Fact-or-fiction quiz.
         const questions = document.querySelectorAll('.quiz-question');
         const scoreEl = document.getElementById('score');
         const resetBtn = document.getElementById('resetQuiz');
