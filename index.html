@@ -442,6 +442,97 @@
             border: 0;
         }
 
+
+        /* ---------- VIDEO PLACEHOLDERS ---------- */
+        .video-placeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .video-placeholder-card {
+            overflow: hidden;
+            background: white;
+        }
+
+        .video-placeholder {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            background:
+                linear-gradient(135deg, rgba(7,27,45,0.96), rgba(13,45,73,0.88)),
+                radial-gradient(circle at 75% 20%, rgba(102,217,239,0.22), transparent 14rem);
+            color: white;
+            border: 0;
+            width: 100%;
+        }
+
+        .video-placeholder::before {
+            content: "🦟";
+            position: absolute;
+            right: 8%;
+            bottom: 3%;
+            font-size: 5rem;
+            opacity: 0.10;
+            transform: rotate(-10deg);
+            pointer-events: none;
+        }
+
+        .video-placeholder:hover .play-button,
+        .video-placeholder:focus .play-button {
+            transform: scale(1.08);
+            box-shadow: 0 14px 35px rgba(102,217,239,0.35);
+        }
+
+        .play-button {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--cyan);
+            color: var(--navy);
+            font-size: 2rem;
+            font-weight: 900;
+            box-shadow: 0 10px 28px rgba(102,217,239,0.24);
+            transition: 0.2s ease;
+            padding-left: 5px;
+        }
+
+        .video-placeholder-label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #e8f8ff;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.6rem;
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+        }
+
+        .video-placeholder-copy {
+            padding: 1.1rem 1.2rem 1.3rem;
+        }
+
+        .video-placeholder-copy h3 {
+            color: var(--navy);
+            margin-bottom: 0.35rem;
+            font-size: 1.1rem;
+        }
+
+        .video-placeholder-copy p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin: 0;
+        }
+
         /* ---------- QUIZ ---------- */
         .quiz-wrap {
             padding: 2rem;
@@ -726,7 +817,8 @@
         @media (max-width: 900px) {
             .evidence-layout,
             .myth-grid,
-            .meme-grid {
+            .meme-grid,
+            .video-placeholder-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -962,30 +1054,55 @@
             </div>
         </section>
 
-        <!-- VIDEO -->
+        <!-- VIDEO PLACEHOLDERS -->
         <section class="section reveal" id="video">
             <div class="section-heading">
-                <div class="section-kicker">Watch & verify</div>
-                <h2>See the method explained</h2>
+                <div class="section-kicker">Featured videos</div>
+                <h2>Watch, question, and compare</h2>
                 <p>
-                    This embedded video comes from the World Mosquito Program, one of the sources
-                    already cited in the project. The video requires an internet connection to play.
+                    These three spaces are ready for videos you choose to add later.
+                    Each one looks and acts like a clickable video card with a play button.
                 </p>
             </div>
 
-            <div class="surface video-shell">
-                <div class="video-copy">
-                    <h3>World Mosquito Program explainer</h3>
-                    <p>Use video as a starting point, then compare its claims with the sources below.</p>
-                </div>
-                <div class="video-frame">
-                    <iframe
-                        src="https://fast.wistia.net/embed/iframe/ef4x2m3y9s?seo=true&web_component=true"
-                        title="World Mosquito Program video"
-                        allow="autoplay; fullscreen"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+            <div class="video-placeholder-grid">
+
+                <article class="surface video-placeholder-card">
+                    <button class="video-placeholder" type="button"
+                            onclick="showVideoPlaceholder('Video 1')"
+                            aria-label="Open Video 1 placeholder">
+                        <span class="video-placeholder-label">Video 1</span>
+                        <span class="play-button" aria-hidden="true">▶</span>
+                    </button>
+                    <div class="video-placeholder-copy">
+                        <h3>Antonyio Villarreal's Video</h3>
+                    </div>
+                </article>
+
+                <article class="surface video-placeholder-card">
+                    <button class="video-placeholder" type="button"
+                            onclick="showVideoPlaceholder('Video 2')"
+                            aria-label="Open Video 2 placeholder">
+                        <span class="video-placeholder-label">Video 2</span>
+                        <span class="play-button" aria-hidden="true">▶</span>
+                    </button>
+                    <div class="video-placeholder-copy">
+                        <h3>Kandis Grant</h3>
+                    </div>
+                </article>
+
+                <article class="surface video-placeholder-card">
+                    <button class="video-placeholder" type="button"
+                            onclick="showVideoPlaceholder('Video 3')"
+                            aria-label="Open Video 3 placeholder">
+                        <span class="video-placeholder-label">Video 3</span>
+                        <span class="play-button" aria-hidden="true">▶</span>
+                    </button>
+                    <div class="video-placeholder-copy">
+                        <h3>Alex St John</h3>
+                    </div>
+                </article>
+
             </div>
         </section>
 
@@ -1256,6 +1373,12 @@
             revealItems.forEach((item) => observer.observe(item));
         } else {
             revealItems.forEach((item) => item.classList.add('visible'));
+        }
+
+
+        // Temporary action for the three video placeholders.
+        function showVideoPlaceholder(name) {
+            alert(name + " is ready for a video link or embed.");
         }
 
         // Fact-or-fiction quiz.
