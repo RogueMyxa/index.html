@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Mosquito Truth Project</title>
+    <style>
+        /* ---------- RESET ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ---------- BODY ---------- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fb;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+
+        /* ---------- HEADER ---------- */
+        header {
+            background: #0b2a46;
+            color: white;
+            padding: 2rem 1rem 1.5rem;
+            text-align: center;
+            border-bottom: 5px solid #2e86c1;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            background: #1a5276;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #85c1e9;
+        }
+
+        .logo span {
+            font-size: 2.8rem;
+        }
+
+        .title-group h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .title-group .tagline {
+            font-size: 1.2rem;
+            color: #85c1e9;
+            font-style: italic;
+            margin-top: 0.2rem;
+        }
+
+        /* ---------- NAV ---------- */
+        nav {
+            background: #1a3a5a;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border-bottom: 2px solid #2e86c1;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 0.4rem 0.2rem;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom-color: #85c1e9;
+        }
+
+        /* ---------- MAIN ---------- */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            margin-bottom: 2.5rem;
+            border-left: 6px solid #2e86c1;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #0b2a46;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: #2e86c1;
+            color: white;
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .hero .btn:hover {
+            background: #1a5276;
+        }
+
+        /* ---------- EVIDENCE PAGE ---------- */
+        .evidence {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            margin-bottom: 2.5rem;
+        }
+
+        .evidence h2 {
+            font-size: 1.9rem;
+            color: #0b2a46;
+            border-bottom: 3px solid #2e86c1;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .evidence h3 {
+            color: #1a5276;
+            margin: 1.8rem 0 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .evidence p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .evidence .source-box {
+            background: #eaf2f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid #2e86c1;
+        }
+
+        .evidence .source-box h4 {
+            color: #0b2a46;
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence .source-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .evidence .source-box li {
+            margin-bottom: 0.4rem;
+        }
+
+        .evidence .source-box a {
+            color: #1a5276;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .evidence .source-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #0b2a46;
+            color: #a9cce3;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 2rem;
+            border-top: 5px solid #2e86c1;
+        }
+
+        footer a {
+            color: #85c1e9;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 600px) {
+            .logo {
+                width: 60px;
+                height: 60px;
+                font-size: 2.5rem;
+            }
+            .logo span {
+                font-size: 2rem;
+            }
+            .title-group h1 {
+                font-size: 1.5rem;
+            }
+            .title-group .tagline {
+                font-size: 1rem;
+            }
+            nav a {
+                display: inline-block;
+                margin: 0.3rem 0.8rem;
+                font-size: 0.95rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+            .evidence {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <span>🦟</span>
+            </div>
+            <div class="title-group">
+                <h1>The Mosquito Truth Project</h1>
+                <div class="tagline">Biting back against misinformation</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAV ===== -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <h2>🦟 The Mosquito Master Manipulation</h2>
+            <p>
+                For years, a shadowy conspiracy has been buzzing across social media: 
+                that global elites are using genetically modified mosquitoes to manipulate, 
+                vaccinate, or even depopulate the human race. 
+                <strong>We're here to set the record straight.</strong>
+            </p>
+            <a href="#evidence" class="btn">Read the Evidence →</a>
+        </section>
+
+        <!-- ===== EVIDENCE PAGE ===== -->
+        <section class="evidence" id="evidence">
+
+            <h2>The Mosquito Master Manipulation: Why the Bugs Are Not the Boss</h2>
+
+            <p>
+                The idea of genetic modification, vaccines, and depopulation has been around the internet for years. It is a conspiracy theory most often attributed to the global elite to manipulate, vaccinate, or even kill the human race by playing with genetically modified mosquitoes. The theory is often referred to as the "Mosquito Master Manipulation," and says that mosquito-control programs are a part of a sinister agenda targeting populations. The scientific evidence is quite different, though, as seen from peer-reviewed publications. The true concern is not with the secret manipulation via mosquito but with the scientific facts of misinformation.
+            </p>
+
+            <h3>The Depopulation Myth Unmasked</h3>
+
+            <p>
+                The Wolbachia mosquito project's first conspiracy theory is a secret depopulation program, or a means of vaccinating people without their knowledge. A few theorize a more benign explanation: they are letting go of mosquitoes to disseminate disease or manage population levels. These claims do not have scientific evidence to support them.
+            </p>
+
+            <p>
+                Wolbachia is a natural bacterium that occurs in many insects. Introduced into the bodies of <em>Aedes aegypti</em> mosquitoes, it may help to lessen their capability to spread dengue viruses (World Health Organization [WHO], 2020). Wolbachia is a naturally occurring bacterium found in many insects and is not intended to alter the genetic makeup of humans.
+            </p>
+
+            <p>
+                The public health potential of this approach was demonstrated in Yogyakarta, Indonesia. A 77% reduction in dengue infection in intervention areas was reported following a three-year randomized controlled trial by the World Mosquito Program and its partners (World Mosquito Program, 2020; WHO, 2022). According to these findings, the program is likely to be a disease-control program, and not a population-control program.
+            </p>
+
+            <h3>The "Meat Allergy" and "Spy Drone" Claims</h3>
+
+            <p>
+                Some forms of the conspiracy theory state that engineered mosquitoes are designed to make people allergic to beef or that they are a tool for the government to spy on people. No scientific evidence supports these claims. The Wolbachia method is simply about slowing the capacity to pass on viruses among mosquitoes; it is not the intent to alter people's DNA, deliberately trigger food allergic responses, or utilize mosquitoes for surveillance purposes. The focus of those claims is mostly exaggerated and incomplete reports, videos that went viral, rumors, and speculation, not the results of controlled scientific research.
+            </p>
+
+            <h3>The Real Manipulation Is Misinformation</h3>
+
+            <p>
+                The "Mosquito Master Manipulation" conspiracy is an example of how information can be problematic, even in legitimate public health measures. Dengue is still one of the most important health issues worldwide, and the WHO has put great emphasis on finding better, sustainable, and effective vector control strategies (WHO, 2020). Traditional mosquito control approaches have drawbacks, and alternative approaches based on science are becoming vital.
+            </p>
+
+            <p>
+                The trial in Yogyakarta has been successful and is a significant move to fight dengue internationally. The Wolbachia-infected mosquitoes will not be used for mass control but as a scientifically evaluated tool to reduce disease transmission. No evidence suggests that these mosquitoes are used for depopulation, vaccination, food allergies, or surveillance. The real risk is from misinformation that arouses undue anxiety and leads to loss of faith in science, medicine, and the global health effort. The evidence should speak for itself in the face of noise.
+            </p>
+
+            <!-- ===== SOURCES ===== -->
+            <div class="source-box" id="sources">
+                <h4>📚 References</h4>
+                <ul>
+                    <li>
+                        World Health Organization. (2020, September 7). 
+                        <a href="https://www.who.int/news/item/07-09-2020-dengue-control-three-year-indonesia-trial-shows-promising-results" target="_blank">
+                            Dengue control: Three-year Indonesia trial shows promising results.
+                        </a>
+                    </li>
+                    <li>
+                        World Health Organization. (2022). 
+                        <em>TPP Wolbachia Aedes aegypti population replacement: Final version February 2022</em> 
+                        (WHO technical document).
+                    </li>
+                    <li>
+                        World Mosquito Program. (2020, August). 
+                        <a href="https://www.worldmosquitoprogram.org/en/news/stories/world-mosquito-program%E2%80%99s-wolbachia-method-dramatically-reduces-dengue-incidence" target="_blank">
+                            World Mosquito Program's Wolbachia method dramatically reduces dengue incidence in randomised controlled trial in Yogyakarta, Indonesia.
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 The Mosquito Truth Project &bull; 
+            <a href="#">Home</a> &bull; 
+            <a href="#evidence">Evidence</a> &bull; 
+            <a href="#sources">Sources</a>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #7f9fb5;">
+            Biting back against misinformation.
+        </p>
+    </footer>
+
+</body>
+</html>
